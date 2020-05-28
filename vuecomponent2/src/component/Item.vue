@@ -10,10 +10,11 @@
 
 <script type="text/ecmascript-6">
 export default {
-  props:["comment","deleteC","index"],
+  props:["comment","index"],
   methods:{
     del(){
-      this.deleteC(this.index)
+      // this.deleteC(this.index)
+      this.$emit("deleteComment",this.index)
     }
   }
 }

@@ -11,7 +11,8 @@
         </div>
         </header>
         <div class="container">
-            <Add :addC="addC"/>
+            <!-- <Add :addC="addC"/> 通过props传递数据-->
+            <Add ref="add"/>
             <List :comments="comments" :deleteC="deleteC"/>
         </div>
     </div>
@@ -35,6 +36,9 @@ export default {
                 {id:3,username:"小老鼠",comment:"我要去哪？？"}
             ]
         }
+    },
+    mounted(){
+        this.$refs.add.$on("addComment",this.addC);
     },
     methods:{
         addC(obj){

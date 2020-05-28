@@ -20,7 +20,7 @@
 
 <script type="text/ecmascript-6">
 export default {
-  props:["addC"],
+  // props:["addC"],
   data(){
     return {
       username:"",
@@ -35,7 +35,8 @@ export default {
       let id = this.id;
       if(username.trim() && comment.trim()){
         let obj = {id,username,comment};
-        this.addC(obj)
+        // this.addC(obj) props 传递数据调用函数
+        this.$emit('addComment',obj)//自定义组件通信调用
       }
       this.username = "";
       this.comment = "";
