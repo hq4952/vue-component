@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style scoped>
-li {
+/* li {
   transition: .5s;
   overflow: hidden;
 }
@@ -46,6 +46,6 @@ li {
 
 .user {
   font-size: 22px;
-}
+} */
 
 </style>
