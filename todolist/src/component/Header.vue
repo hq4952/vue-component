@@ -12,7 +12,6 @@ export default {
     data(){
         return {
             content:"",
-            id:Date.now(),
             isDone:false
         }
     },
@@ -21,7 +20,7 @@ export default {
             if(this.content.trim()){
                 let {id,content,isDone} = this;
                 let obj = {
-                    id,
+                    id:Date.now(),
                     content,
                     isDone
                 };

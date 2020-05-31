@@ -14,11 +14,11 @@
 export default {
     props:{
         contents:Array,
-        clC:Function
+        // clC:Function
     },
     methods:{
         clear(){
-            this.clC()
+            this.$GobalEventBus.$emit("Clc")//全局事件总线调用
         }
     },
     computed:{

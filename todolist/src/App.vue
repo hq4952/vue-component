@@ -3,7 +3,7 @@
     <div class="todo-wrap">
         <Header :addC="addC"/>
         <Main :contents="contents" :change="change" :deleteC="deleteC"/>
-        <Footer :contents="contents" :clC="clC"/>
+        <Footer :contents="contents" />
     </div>
   </div>
 </template>
@@ -21,11 +21,7 @@ export default {
     },
     data(){
         return {
-            contents:[
-                {id:1,content:"吃饭",isDone:true},
-                {id:2,content:"睡觉",isDone:false},
-                {id:3,content:"打游戏",isDone:false}
-            ],
+            contents:JSON.parse(localStorage.getItem("conts_k")) || []
         }
     },
     methods:{
@@ -45,6 +41,17 @@ export default {
            this.contents = this.contents.filter(item => !item.isDone);
            console.log(this.contents)
        }
+    },
+    mounted(){
+        this.$GobalEventBus.$on("Clc",this.clC)
+    },
+    watch:{
+        contents:{
+            deep:true,
+            handler(newVal,oldVal){
+                localStorage.setItem("conts_k",JSON.stringify(newVal))
+            }
+        }
     }
 }
 </script>
