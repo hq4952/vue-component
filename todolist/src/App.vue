@@ -1,9 +1,10 @@
 <template>
 <div class="todo-container">
     <div class="todo-wrap">
-        <Header :addC="addC"/>
-        <Main :contents="contents" :change="change" :deleteC="deleteC"/>
+        <Header/>
+        <Main :contents="contents"/>
         <Footer :contents="contents" />
+        <Buttom/>
     </div>
   </div>
 </template>
@@ -12,12 +13,13 @@
 import Header from "./component/Header.vue";
 import Main from "./component/main.vue";
 import Footer from "./component/Footer.vue";
-
+import Buttom from "./component/buttom.vue"
 export default {
     components:{
         Header,
         Main,
-        Footer
+        Footer,
+        Buttom
     },
     data(){
         return {
@@ -43,7 +45,10 @@ export default {
        }
     },
     mounted(){
-        this.$GobalEventBus.$on("Clc",this.clC)
+        this.$GobalEventBus.$on("Clc",this.clC)//全局事件总线绑定
+        this.$GobalEventBus.$on("deleteC",this.deleteC);
+        this.$GobalEventBus.$on("changeC",this.change);
+        this.$GobalEventBus.$on("addC",this.addC);
     },
     watch:{
         contents:{

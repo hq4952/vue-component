@@ -19,9 +19,9 @@ export default {
     },
     props:{
         content:Object,
-        change:Function,
+        // change:Function,    props通信写法
         index:Number,
-        deleteC:Function
+        // deleteC:Function props通信
     },
     methods:{
         // change(){
@@ -40,7 +40,8 @@ export default {
 
         },
         del(){
-            this.deleteC(this.index)
+            // this.deleteC(this.index) props方法
+            this.$GobalEventBus.$emit("deleteC",this.index)//全局事件总线通信
         }
     },
     computed:{
@@ -49,7 +50,7 @@ export default {
                 return this.content.isDone;
             },
             set(val){
-                this.change(this.index,val)
+                this.$GobalEventBus.$emit("changeC",this.index,val)//事件总线通信写法
             }
         }
     }

@@ -4,8 +4,7 @@
           :key="content.id" 
           :content="content" 
           :index="index" 
-          :change="change"
-          :deleteC="deleteC"/>
+          />
 </ul>
 </template>
 
@@ -17,8 +16,6 @@ export default {
     },
     props:{
         contents:Array,
-        change:Function,
-        deleteC:Function
     }
 }
 </script>

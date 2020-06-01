@@ -7,7 +7,7 @@
 <script type="text/ecmascript-6">
 export default {
     props:{
-        addC:Function
+        // addC:Function  props通信写法
     },
     data(){
         return {
@@ -24,7 +24,7 @@ export default {
                     content,
                     isDone
                 };
-                this.addC(obj)
+                this.$GobalEventBus.$emit("addC",obj)//全局事件总线写法
             }
             this.content = ""
         }

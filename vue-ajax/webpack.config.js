@@ -5,7 +5,7 @@ const  VueLoaderPlugin = require("vue-loader/lib/plugin");
 const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: ["@babel/polyfill", "./src/index.js"],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: './js/main.js'

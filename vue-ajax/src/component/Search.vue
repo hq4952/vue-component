@@ -18,7 +18,8 @@ export default {
     methods:{
         get(){
             if(this.username.trim()){
-                this.$bus.$emit("vueAjax",this.username)    
+                // this.$bus.$emit("vueAjax",this.username) 全局事件总线写法
+                   this.$store.dispatch("reqs",this.username)
             }
         }
     }
