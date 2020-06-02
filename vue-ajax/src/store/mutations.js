@@ -1,15 +1,16 @@
+import {isLoadingT,ReqT,ReqF} from "./instaedName.js"
 export const mutations = {
-    isLoadingT(state){
+    [isLoadingT](state){
         state.isLoading = true;
         state.isFirst = false
     },
     // isLoadingF(state){
     // },
-    reqsuccess(state,users){
+    [ReqT](state,users){
         state.isLoading = false;
         state.users = users
     },
-    reqfailed(state,errmsg){
+    [ReqF](state,errmsg){
         state.isLoading = false;
         state.errmsg = errmsg
     }
